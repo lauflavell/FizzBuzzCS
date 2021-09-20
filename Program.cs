@@ -4,22 +4,29 @@ namespace FizzBuzzCS
 {
     class Program
     {
+        static bool IsDivisable(int n, int m) 
+        {
+            return n % m == 0;
+        }
+
         static void Main(string[] args)
         {
-            
             for (int i = 1; i <= 100; i++)
             {
                 string print = "";
-                
-                if(i % 3 == 0)
+
+                if(IsDivisable(i,3))
                 {
                     print += "Fizz";
                 } 
-                if (i % 5 == 0) 
+                if (IsDivisable(i,5)) 
                 {
                     print += "Buzz";
-                } else print = i.ToString();
-
+                } 
+                else if (print == "")
+                {
+                    print = i.ToString();
+                }
                 Console.WriteLine(print);   
             }
         }
